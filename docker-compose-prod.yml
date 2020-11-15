@@ -11,5 +11,3 @@ services:
     container_name: car-booking-app_server
     build:
       context: ./server
-    ports:
-      - "8080:8080"
