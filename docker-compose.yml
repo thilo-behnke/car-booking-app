@@ -2,12 +2,14 @@ version: "3.8"
 
 services:
   client:
+    container_name: car-booking-app_client
     build:
       context: ./client
     ports:
       - "8090:80"
       - "8081:8081"
   server:
+    container_name: car-booking-app_server
     build:
       context: ./server
     ports:
