@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - "8090:80"
+      - "8081:8081"
+  server:
+    build:
+      context: ./server
+    ports:
+      - "8080:8080"

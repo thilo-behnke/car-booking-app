@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "src/custom-theme";
+
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.scss";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+:root {
+  --custom-dark: #434c53;
+  --custom-light: #b0b6b8;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}

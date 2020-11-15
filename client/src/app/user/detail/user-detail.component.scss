@@ -1,0 +1,16 @@
+.user-detail {
+  &_container {
+    display: flex;
+    justify-content: center;
+  }
+  &_form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+
+    &-field {
+      width: 100%;
+    }
+  }
+}

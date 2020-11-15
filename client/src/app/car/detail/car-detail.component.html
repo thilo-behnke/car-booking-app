@@ -1,0 +1,134 @@
+<div class="user-detail_container" (submit)="saveCar()">
+  <div *ngIf="errors.length" class="user-detail_error-container">
+    <div *ngFor="let error of errors" class="user-detail_error">
+      <span class="material-icons mat-error"> error_outline </span>
+      <div>{{ error }}</div>
+    </div>
+  </div>
+  <form class="user-detail_form" [formGroup]="carForm">
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="id" id="id" [readonly]="true" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        carForm.get('licensePlate').invalid &&
+        (carForm.get('licensePlate').dirty ||
+          carForm.get('licensePlate').touched)
+      "
+      class="alert alert-danger"
+    >
+      <mat-error *ngIf="carForm.get('licensePlate').errors.required">
+        License Plate is required.
+      </mat-error>
+      <mat-error
+        *ngIf="
+          carForm.get('licensePlate').errors.uniqueLicensePlateValidator
+        "
+      >
+        There already exists a license plate with the same id.
+      </mat-error>
+    </div>
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>License Plate</mat-label>
+      <input matInput formControlName="licensePlate" id="licensePlate" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        carForm.get('vin').invalid &&
+        (carForm.get('vin').dirty || carForm.get('vin').touched)
+      "
+      class="alert alert-danger"
+    >
+      <mat-error *ngIf="carForm.get('vin').errors.required">
+        Vin is required.
+      </mat-error>
+    </div>
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>Vin</mat-label>
+      <input matInput formControlName="vin" id="vin" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        carForm.get('model').invalid &&
+        (carForm.get('model').dirty || carForm.get('model').touched)
+      "
+      class="alert alert-danger"
+    >
+      <mat-error *ngIf="carForm.get('model').errors.required">
+        Model is required.
+      </mat-error>
+    </div>
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>Model</mat-label>
+      <input matInput formControlName="model" id="model" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        carForm.get('color').invalid &&
+        (carForm.get('color').dirty || carForm.get('color').touched)
+      "
+      class="alert alert-danger"
+    >
+      <mat-error *ngIf="carForm.get('color').errors.required">
+        Color is required.
+      </mat-error>
+    </div>
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>Color</mat-label>
+      <input matInput formControlName="color" id="color" />
+    </mat-form-field>
+    <div
+      *ngIf="
+        carForm.get('validTill').invalid &&
+        (carForm.get('validTill').dirty ||
+          carForm.get('validTill').touched)
+      "
+      class="alert alert-danger"
+    >
+      <mat-error *ngIf="carForm.get('validTill').errors.required">
+        ValidTill is required.
+      </mat-error>
+      <mat-error
+        *ngIf="carForm.get('validTill').errors.futureDateValidator"
+      >
+        ValidTill must be a date in future.
+      </mat-error>
+    </div>
+    <mat-form-field class="user-detail_form-field" appearance="outline">
+      <mat-label>validTill</mat-label>
+      <input matInput formControlName="validTill" id="validTill" type="date" />
+    </mat-form-field>
+    <mat-radio-group
+      aria-label="Active State"
+      formControlName="active"
+      id="active"
+    >
+      <mat-radio-button [value]="true">Active</mat-radio-button>
+      <mat-radio-button style="margin-left: 10px" [value]="false"
+        >Inactive
+      </mat-radio-button>
+    </mat-radio-group>
+    <div class="user-detail_form_submit-button-container">
+      <button
+        mat-button
+        mat-raised-button
+        color="accent"
+        class="user-detail_form_submit-button"
+        type="submit"
+        [disabled]="!carForm.valid"
+      >
+        Submit
+      </button>
+      <button
+        mat-button
+        mat-raised-button
+        color="secondary"
+        type="button"
+        (click)="backToList()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+.user-detail {
+  &_container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  &_error-container {
+    width: 100%;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  &_error {
+    display: flex;
+    align-items: center;
+
+    > div {
+      margin-left: 5px;
+    }
+  }
+
+  &_form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+
+    &-field {
+      width: 100%;
+    }
+
+    &_submit-button-container {
+      margin-top: 30px;
+      display: flex;
+
+      * + * {
+        margin-left: 10px;
+      }
+    }
+
+    &_submit-button {
+      align-self: end;
+    }
+  }
+}
