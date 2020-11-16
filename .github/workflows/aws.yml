@@ -83,7 +83,7 @@ jobs:
         id: task-def-server
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: server-task-definition.json
+          task-definition: .github/workflows/server-task-definition.json
           container-name: car-booking-app-server
           image: ${{ steps.build-image-server.outputs.image }}
 
@@ -91,7 +91,7 @@ jobs:
         id: task-def-client
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: server-task-definition.json
+          task-definition: .github/workflows/client-task-definition.json
           container-name: car-booking-app-client
           image: ${{ steps.build-image-client.outputs.image }}
 
