@@ -31,7 +31,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "",
+      "image": "placeholder",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -48,7 +48,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": ""
+      "name": "car-booking-app-client"
     }
   ],
   "placementConstraints": [],
