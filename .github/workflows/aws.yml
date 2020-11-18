@@ -100,7 +100,7 @@ jobs:
         with:
           task-definition: ${{ steps.task-def-server.outputs.task-definition }}
           service: car-booking-app-server
-          cluster: default
+          cluster: car-booking-app
           wait-for-service-stability: true
 
       - name: Deploy Amazon ECS task definition
@@ -108,5 +108,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def-client.outputs.task-definition }}
           service: car-booking-app-client
-          cluster: default
+          cluster: car-booking-app
           wait-for-service-stability: true
