@@ -3,6 +3,8 @@ version: "3.8"
 services:
   client:
     container_name: car-booking-app_client
+    env_file:
+      - .env-production
     build:
       context: ./client
     ports:
